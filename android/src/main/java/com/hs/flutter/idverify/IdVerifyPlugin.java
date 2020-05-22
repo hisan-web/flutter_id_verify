@@ -104,6 +104,7 @@ public class IdVerifyPlugin implements FlutterPlugin, MethodCallHandler, Activit
    * 激活SDK
    */
   private void activeSdk(String appId, String sdkKey, Result result) {
+    Log.i(TAG,"激活sdk，Activity："+activity+"，appId："+appId+"sdkKey："+sdkKey);
     int ret = IdCardVerifyManager.getInstance().active(activity,appId,sdkKey);
     if (ret != IdCardVerifyError.OK && ret != IdCardVerifyError.MERR_ASF_ALREADY_ACTIVATED) {
       Log.e(TAG,"sdk激活失败，失败错误码："+ret);
@@ -117,8 +118,9 @@ public class IdVerifyPlugin implements FlutterPlugin, MethodCallHandler, Activit
   // 插件注册方法
   private void pluginRegister(Activity activity, BinaryMessenger messenger) {
     this.activity = activity;
+    Log.i(TAG,"插件注册，Activity："+activity);
     final MethodChannel methodChannel = new MethodChannel(messenger, METHOD_CHANNEL);
-    methodChannel.setMethodCallHandler(new IdVerifyPlugin());
+    methodChannel.setMethodCallHandler(this);
   }
 
   // 插件销毁

@@ -44,17 +44,26 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Plugin example app'),
       ),
-      body: IdVerifyView(
-        idVerifyViewCreatedCallback: (controller) {
-          this.controller = controller
-              ..idVerifyViewDataStreamListen((data) {
-                print(data);
-              });
-              // 输入身份信息的Uint8List
-              //..inputIdCard(new Uint8List(0));
-        },
-      ),
+      body: Column(children: <Widget>[
+        Expanded(child: IdVerifyView(
+          idVerifyViewCreatedCallback: (controller) {
+            this.controller = controller
+                ..idVerifyViewDataStreamListen((data) {
+                  print(data);
+                });
+          },
+        ),),
+        RaisedButton(
+          onPressed: activeSdk,
+          child: Text("点击激活SDK"),
+        )
+      ])
     );
+  }
+
+  Future<void> activeSdk() async {
+    bool result = await IdVerifyPlugin.activeSdk("CjGWF7wY9uYDeKsUD8xcBdyM2Xkbc2AyjQkpc2gvFpWu", "HKyEKmpqQB84uyj7M23bQWiJokRB7JcwBVyYLp7TRSw9");
+    print("激活SDK，返回结果：$result");
   }
 }
 

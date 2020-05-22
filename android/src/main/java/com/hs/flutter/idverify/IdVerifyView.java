@@ -261,9 +261,7 @@ public class IdVerifyView implements PlatformView, MethodCallHandler, OnGlobalLa
     }
 
     private void inputIdCardData(byte[] bytes) {
-        // 解码
-        byte[] bmpBuf = new byte[102 * 126 * 3 + 54 + 126 * 2]; // 照片头像bmp数据
-        Bitmap bitmap = BitmapFactory.decodeByteArray(bmpBuf,0,bmpBuf.length);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
         Bitmap bmp = ArcSoftImageUtil.getAlignedBitmap(bitmap,true);
         int width = bmp.getWidth();
         int height = bmp.getHeight();

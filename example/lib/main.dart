@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:idverify/id_verify_plugin.dart';
 import 'package:idverify/id_verify_view.dart';
 
@@ -38,6 +37,14 @@ class _HomePageState extends State<HomePage> {
 
   IdVerifyViewController controller;
 
+  Uint8List bytes;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,8 +56,9 @@ class _HomePageState extends State<HomePage> {
           idVerifyViewCreatedCallback: (controller) {
             this.controller = controller
                 ..idVerifyViewDataStreamListen((data) {
-                  print(data);
+                  print("获取到人证回调数据：$data");
                 });
+//                ..inputIdCard(bytes);
           },
         ),),
         RaisedButton(

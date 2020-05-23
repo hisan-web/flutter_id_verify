@@ -18,6 +18,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await IdVerifyPlugin.platformVersion, '42');
+    expect(await IdVerifyPlugin.deviceSn, '42');
   });
 }

@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 class IdVerifyPlugin {
   static const MethodChannel _channel = const MethodChannel('com.hs.flutter.idVerify/method_channel');
 
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
+  static Future<String> get deviceSn async {
+    final String version = await _channel.invokeMethod('getDeviceSN');
     return version;
   }
 

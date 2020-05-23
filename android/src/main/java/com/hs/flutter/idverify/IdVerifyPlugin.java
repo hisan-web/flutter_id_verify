@@ -87,8 +87,8 @@ public class IdVerifyPlugin implements FlutterPlugin, MethodCallHandler, Activit
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     switch (call.method) {
-      case "getPlatformVersion":
-        result.success("Android " + android.os.Build.VERSION.RELEASE);
+      case "getDeviceSN":
+        result.success(getDeviceSn());
         break;
       case "activeSdk":
         String appId = call.argument("appId");
@@ -98,6 +98,11 @@ public class IdVerifyPlugin implements FlutterPlugin, MethodCallHandler, Activit
       default:
         result.notImplemented();
     }
+  }
+
+  @SuppressLint("HardwareIds")
+  private String getDeviceSn() {
+    return android.os.Build.SERIAL;
   }
 
   /**

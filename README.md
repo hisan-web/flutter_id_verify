@@ -24,6 +24,9 @@ idverify:
 
     /// 注册sdk，第一次安装或者重新安装后需要注册sdk
     IdVerifyPlugin.activeSdk(appId, sdkKey);
+
+    /// 获取设备sn号
+    String sn = IdVerifyPlugin.deviceSn;
 ```
 
 ### 使用demo

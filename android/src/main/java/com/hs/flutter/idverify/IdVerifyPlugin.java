@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.arcsoft.idcardveri.IdCardVerifyError;
 import com.arcsoft.idcardveri.IdCardVerifyManager;
+import com.hs.flutter.idverify.utils.AesUtil;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
@@ -94,6 +95,31 @@ public class IdVerifyPlugin implements FlutterPlugin, MethodCallHandler, Activit
         String appId = call.argument("appId");
         String sdkKey = call.argument("sdkKey");
         activeSdk(appId, sdkKey, result);
+        break;
+      case "aesEncrypt":
+        try {
+          String content = (String) call.argument("content");
+          String key = (String) call.argument("key");
+          assert content != null;
+          assert key != null;
+          String str = AesUtil.encrypt(content, key);
+          result.success(str);
+        } catch (Exception e) {
+          e.printStackTrace();
+          result.success(null);
+        }
+        break;
+      case "aesDecrypt":
+        try {
+          String content = (String) call.argument("content");
+          String key = (String) call.argument("key");
+          assert key != null;
+          String str = AesUtil.decrypt(content, key);
+          result.success(str);
+        } catch (Exception e) {
+          e.printStackTrace();
+          result.success(null);
+        }
         break;
       default:
         result.notImplemented();

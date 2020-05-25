@@ -27,6 +27,12 @@ idverify:
 
     /// 获取设备sn号
     String sn = IdVerifyPlugin.deviceSn;
+
+    /// aes加密
+    String str = IdVerifyPlugin.aesEncrypt(content, key);
+
+    /// aes解密
+    String str = IdVerifyPlugin.aesDncrypt(content, key);
 ```
 
 ### 使用demo

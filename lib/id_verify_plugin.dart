@@ -22,4 +22,20 @@ class IdVerifyPlugin {
       return false;
     }
   }
+
+  static Future<String> aesEncrypt(String content, String key) async {
+    final String str = await _channel.invokeMethod('aesEncrypt',{
+      'content': content,
+      'key': key
+    });
+    return str;
+  }
+
+  static Future<String> aesDecrypt(String content, String key) async {
+    final String str = await _channel.invokeMethod('aesDecrypt',{
+      'content': content,
+      'key': key
+    });
+    return str;
+  }
 }

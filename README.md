@@ -32,7 +32,7 @@ idverify:
     String str = IdVerifyPlugin.aesEncrypt(content, key);
 
     /// aes解密
-    String str = IdVerifyPlugin.aesDncrypt(content, key);
+    String str = IdVerifyPlugin.aesDecrypt(content, key);
 ```
 
 ### 使用demo

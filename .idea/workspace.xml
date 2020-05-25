@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cde74338-447c-4019-8183-376fcb59baf1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/hs/flutter/idverify/utils/AesUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/hs/flutter/idverify/IdVerifyPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/hs/flutter/idverify/IdVerifyPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/id_verify_plugin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/id_verify_plugin.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
